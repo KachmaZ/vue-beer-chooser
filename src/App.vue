@@ -1,16 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <PersonalAccount :user="currentUser" />
+  <RecommendedBeer :beer="currentBeer" />
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PersonalAccount from "./components/v-personal-account.vue"
+import RecommendedBeer from "./components/v-your-beer.vue"
+import {mapActions, mapGetters} from "vuex"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    PersonalAccount,
+    RecommendedBeer,
+  },
+
+  computed: {
+    ...mapGetters(["currentUser", "currentBeer"]),
+  },
+
+  methods: {
+    ...mapActions(["fetchRandomUser", "fetchRandomBeer"]),
+  },
+
+  async mounted(){
+    this.fetchRandomUser();
+    this.fetchRandomBeer();
+  },
+
 }
 </script>
 
