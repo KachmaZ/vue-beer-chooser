@@ -23,8 +23,6 @@ export default {
   
     getters: {
         currentBeer(state){
-
-            console.log(state.currentBeer);
             return state.currentBeer
         }
     },

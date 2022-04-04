@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import PersonalAccount from "@/components/v-personal-account.vue"
+import PersonalAccount from "@/components/v-user-account.vue"
 import YourBeer from "@/components/v-your-beer.vue"
 import {mapActions, mapGetters} from "vuex"
 

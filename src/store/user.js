@@ -23,8 +23,6 @@ export default {
   
     getters: {
         currentUser(state){
-
-            console.log(state.currentUser);
             return state.currentUser
         }
     },
