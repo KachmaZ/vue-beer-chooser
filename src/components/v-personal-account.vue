@@ -1,7 +1,7 @@
 <template>
     <div class="account">
-        Personal account
-        <span>{{user.username}}</span>
+        <img :src="user.avatar" alt="avatar">
+        <h2>{{user.username}}</h2>
     </div>
 </template>
 

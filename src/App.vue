@@ -1,20 +1,20 @@
 <template>
 <div>
   <PersonalAccount :user="currentUser" />
-  <RecommendedBeer :beer="currentBeer" />
+  <YourBeer :beer="currentBeer" />
 </div>
 </template>
 
 <script>
 import PersonalAccount from "./components/v-personal-account.vue"
-import RecommendedBeer from "./components/v-your-beer.vue"
+import YourBeer from "./components/v-your-beer.vue"
 import {mapActions, mapGetters} from "vuex"
 
 export default {
   name: 'App',
   components: {
     PersonalAccount,
-    RecommendedBeer,
+    YourBeer,
   },
 
   computed: {
