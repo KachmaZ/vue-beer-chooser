@@ -1,16 +1,26 @@
 <template>
+  <Header />
   <router-view />
 </template>
 
 <script>
-export default {};
+import Header from "@/components/v-header.vue";
+export default {
+  components: {
+    Header,
+  },
+};
 </script>
-
 <style>
 @font-face {
   font-family: "Taverna";
-  src: local("Taverna"),
-   url(./fonts/Taverna.ttf) format("truetype");
+  src: local("Taverna"), url(./fonts/Taverna.ttf) format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #app {
@@ -20,8 +30,5 @@ export default {};
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 </style>

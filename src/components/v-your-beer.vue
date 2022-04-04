@@ -32,19 +32,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.beer-img {
-  width: 150px;
-  height: 150px;
+.beer {
+  width: 200px;
 
-  background-image: url("../assets/question-marks.png");
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  border: 10px solid #a5bdbb;
-  border-radius: 20px;
+  & .beer-img {
+    width: 150px;
+    height: 150px;
 
-  &.chosen {
-    background-image: url("../assets/beer.png");
+    background-image: url("../assets/question-marks.png");
+    background-size: cover;
+    background-position: center;
+
+    border: 10px solid #a5bdbb;
+    border-radius: 20px;
+
+    &.chosen {
+      background-image: url("../assets/beer.png");
+    }
+  }
+
+  & .beer-desc {
+    width: 100%;
+    text-align: left;
   }
 }
 </style>
