@@ -36,6 +36,8 @@ export default {
 
 <style lang="scss" scoped>
 .home {
+  width: 70%;
+  margin: 100px 15%;
   display: flex;
   justify-content: space-around;
 }
