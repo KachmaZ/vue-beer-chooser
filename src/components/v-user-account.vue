@@ -2,7 +2,6 @@
   <div class="user">
     <Loader v-if="userLoading" />
     <template v-else>
-      <h2 class="user-name">{{ user.username }}</h2>
       <img
         class="user-avatar"
         :src="user.avatar"
@@ -10,9 +9,25 @@
         alt="Avatar"
       />
       <div class="user-info">
-        <span>{{ user.first_name }} {{ user.last_name }}</span>
-        <span>{{ userAge }} years</span>
-        <span v-if="user.employment">{{ user.employment.title }}</span>
+        <template v-if="!mobile">
+          <h2 class="user-name">{{ user.username }}</h2>
+          <span class="user-fullname">
+            {{ user.first_name }} {{ user.last_name }}
+          </span>
+          <span class="user-age">{{ userAge }} years</span>
+          <span class="user-employment" v-if="user.employment">
+            {{ user.employment.title }}
+          </span>
+        </template>
+        <template v-else>
+          <span class="user-name">{{ user.username }}</span>
+          <span class="user-fullname"
+            >{{ user.first_name }} {{ user.last_name }}, {{ userAge }}</span
+          >
+          <span class="user-employment" v-if="user.employment">{{
+            user.employment.title
+          }}</span>
+        </template>
       </div>
     </template>
   </div>
@@ -28,6 +43,13 @@ export default {
     user: Object,
   },
 
+  data() {
+    return {
+      mobile: true,
+      windowWidth: null,
+    };
+  },
+
   computed: {
     ...mapGetters(["userLoading"]),
     userAge: function () {
@@ -41,9 +63,24 @@ export default {
 
   methods: {
     setAltImage(e) {
-      e.target.src = require('../assets/broken-robot.png')
-      console.log(e.target.src)
+      e.target.src = require("../assets/broken-robot.png");
     },
+
+    checkScreen() {
+      this.windowWidth = window.innerWidth;
+      if (this.windowWidth <= 750) {
+        this.mobile = true;
+        return;
+      }
+
+      this.mobile = false;
+      return;
+    },
+  },
+
+  created() {
+    window.addEventListener("resize", this.checkScreen);
+    this.checkScreen();
   },
 
   components: {
@@ -57,6 +94,8 @@ export default {
   width: 200px;
   height: 400px;
 
+  margin-right: 100px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -65,11 +104,6 @@ export default {
   & .loader {
     width: 80px;
     margin: auto;
-  }
-
-  & .user-name {
-    width: 100%;
-    height: 50px;
   }
 
   & .user-avatar {
@@ -82,7 +116,7 @@ export default {
 
   & .user-info {
     width: 100%;
-    height: 150px;
+    height: 200px;
 
     padding: 10px;
 
@@ -91,6 +125,64 @@ export default {
     justify-content: space-between;
 
     text-align: left;
+
+    & .user-name {
+      width: 100%;
+      height: 50px;
+    }
+
+    & .user-employment {
+      color: #ffffffb4;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .user {
+    width: 300px;
+    height: 50px;
+
+    position: fixed;
+    top: 0;
+    right: -80px;
+    z-index: 5;
+
+    flex-direction: row;
+
+    & .user-avatar {
+      width: 50px;
+      height: 50px;
+
+      margin-right: 20px;
+
+      background-color: #fff;
+      border: 2px solid #6b2b01;
+      border-radius: 50%;
+    }
+
+    & .user-info {
+      height: 100%;
+
+      padding: 0;
+
+      color: #fff;
+      text-shadow: 2px 2px 0 #292929, 2px 2px 2px #ce593700;
+
+      & .user-name {
+        height: 20px;
+        font-size: 18px;
+      }
+
+      & .user-fullname {
+        font-size: 14px;
+      }
+
+      & .user-employment {
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
   }
 }
 </style>
