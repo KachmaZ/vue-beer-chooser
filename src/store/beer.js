@@ -1,29 +1,40 @@
 // Beer info state
 export default {
-    actions: {  
-      // Fetch one random beer from API
-      async fetchRandomBeer(ctx) {
-        
-        const res = await fetch("https://random-data-api.com/api/beer/random_beer");
+  actions: {
+    // Fetch one random beer from API
+    async fetchRandomBeer(ctx) {
+      ctx.commit("setBeerLoading", true);
+      setTimeout(async () => {
+        const res = await fetch(
+          "https://random-data-api.com/api/beer/random_beer"
+        );
         const beer = await res.json();
-  
+
         ctx.commit("updateCurrentBeer", beer);
-      },
+        ctx.commit("setBeerLoading", false);
+      }, 1000);
     },
-  
-    mutations: {
+  },
+
+  mutations: {
     updateCurrentBeer(state, currentBeer) {
-        state.currentBeer = currentBeer;
-      },
+      state.currentBeer = currentBeer;
     },
-  
-    state: {
-      currentBeer: {}, 
+
+    setBeerLoading(state, status) {
+      state.beerLoading = status;
     },
-  
-    getters: {
-        currentBeer(state){
-            return state.currentBeer
-        }
-    },
-  };
+  },
+
+  state: {
+    currentBeer: {},
+
+    beerLoading: false,
+  },
+
+  getters: {
+    currentBeer: (state) => state.currentBeer,
+
+    beerLoading: (state) => state.beerLoading,
+  },
+};
