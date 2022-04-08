@@ -54,7 +54,7 @@ export default {
     height: 50px;
 
     &.hidden {
-    visibility: hidden !important;
+      visibility: hidden !important;
     }
   }
 
@@ -86,8 +86,6 @@ export default {
     height: 150px;
     padding: 10px;
 
-    position: relative;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -108,8 +106,9 @@ export default {
     justify-content: center;
     align-items: center;
 
-    color: #faebd7;
+    color: #ffffff;
     font-size: 24px;
+    text-shadow: 4px 3px 0 #292929, 2px 2px 2px #ce593700;
 
     background-color: #d47100;
 
