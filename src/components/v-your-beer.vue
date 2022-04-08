@@ -33,10 +33,12 @@ export default {
 
 <style lang="scss" scoped>
 .beer {
-  width: 200px;
+  width: 170px;
+  height: 300px;
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 
   & .beer-img {
