@@ -3,11 +3,16 @@
     <Loader v-if="userLoading" />
     <template v-else>
       <h2 class="user-name">{{ user.username }}</h2>
-      <img class="user-avatar" :src="user.avatar" alt="Avatar" />
+      <img
+        class="user-avatar"
+        :src="user.avatar"
+        @error="setAltImage"
+        alt="Avatar"
+      />
       <div class="user-info">
-        <p>{{ user.first_name }} {{ user.last_name }}</p>
-        <p>{{ userAge }} years</p>
-        <p v-if="user.employment">{{ user.employment.title }}</p>
+        <span>{{ user.first_name }} {{ user.last_name }}</span>
+        <span>{{ userAge }} years</span>
+        <span v-if="user.employment">{{ user.employment.title }}</span>
       </div>
     </template>
   </div>
@@ -31,6 +36,13 @@ export default {
           (24 * 3600 * 365.25 * 1000)) |
         0
       );
+    },
+  },
+
+  methods: {
+    setAltImage(e) {
+      e.target.src = require('../assets/broken-robot.png')
+      console.log(e.target.src)
     },
   },
 
@@ -64,13 +76,20 @@ export default {
     width: 200px;
     height: 200px;
 
-    border: 10px solid rgb(107, 43, 1);
+    border: 10px solid #6b2b01;
     border-radius: 20px;
   }
 
   & .user-info {
     width: 100%;
     height: 150px;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     text-align: left;
   }
 }
