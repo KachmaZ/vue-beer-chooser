@@ -144,7 +144,7 @@ export default {
 
     position: fixed;
     top: 0;
-    right: -80px;
+    right: -115px;
     z-index: 5;
 
     flex-direction: row;
