@@ -7,9 +7,9 @@
 
 <script>
 // @ is an alias to /src
-import PersonalAccount from "@/components/v-user-account.vue"
-import YourBeer from "@/components/v-your-beer.vue"
-import {mapActions, mapGetters} from "vuex"
+import PersonalAccount from "@/components/v-user-account.vue";
+import YourBeer from "@/components/v-your-beer.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -27,7 +27,7 @@ export default {
     ...mapActions(["fetchRandomUser", "fetchRandomBeer"]),
   },
 
-  async mounted(){
+  async mounted() {
     this.fetchRandomUser();
     this.fetchRandomBeer();
   },
@@ -37,8 +37,15 @@ export default {
 <style lang="scss" scoped>
 .home {
   width: 70%;
-  margin: 100px 15%;
+  margin: 20px 15% 0;
   display: flex;
   justify-content: space-around;
+}
+
+@media screen and (max-width: 750px) {
+  .home {
+    width: 100%;
+    margin: 0;
+  }
 }
 </style>
