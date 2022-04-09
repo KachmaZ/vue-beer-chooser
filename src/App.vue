@@ -5,7 +5,7 @@
 
 <script>
 import Header from "@/components/v-header.vue";
-import {mapMutations} from "vuex"
+import {mapActions, mapMutations} from "vuex"
 
 export default {
   components: {
@@ -13,10 +13,12 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["setMobileNav"])
+    ...mapMutations(["setMobileNav"]),
+    ...mapActions(["fetchRandomUser"])
   },
 
   mounted() {
+    this.fetchRandomUser();
     window.addEventListener('click', () => this.setMobileNav(false))
   }
 };

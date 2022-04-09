@@ -27,8 +27,7 @@ export default {
     ...mapActions(["fetchRandomUser", "fetchRandomBeer"]),
   },
 
-  async mounted() {
-    this.fetchRandomUser();
+  async created() {
     this.fetchRandomBeer();
   },
 };
