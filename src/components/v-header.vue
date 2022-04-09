@@ -4,7 +4,7 @@
       <div
         class="ham-icon"
         :class="{ active: mobileNav }"
-        @click="toggleMobileNav"
+        @click.stop="toggleMobileNav"
         v-show="mobile"
       >
         <svg
@@ -54,36 +54,20 @@
 </template>
 
 <script>
+import {mapGetters, mapMutations} from "vuex"
+
 export default {
-  data() {
-    return {
-      mobile: true,
-      mobileNav: false,
-      windowWidth: null,
-    };
+  computed: {
+    ...mapGetters(["mobile", "mobileNav", "windowWidth"])
   },
 
   methods: {
-    toggleMobileNav() {
-      this.mobileNav = !this.mobileNav;
-    },
-
-    checkScreen() {
-      this.windowWidth = window.innerWidth;
-      if (this.windowWidth <= 750) {
-        this.mobile = true;
-        return;
-      }
-
-      this.mobile = false;
-      this.mobileNav = false;
-      return;
-    },
+    ...mapMutations(["toggleMobileNav", "setWindowWidth"])
   },
 
   created() {
-    window.addEventListener("resize", this.checkScreen);
-    this.checkScreen();
+    window.addEventListener("resize", this.setWindowWidth);
+    this.setWindowWidth();
   },
 };
 </script>
@@ -124,11 +108,6 @@ header {
       &.active {
         transform: rotate(180deg);
         transition: 250ms ease-in;
-
-        & svg {
-          fill: #d49c00;
-          transition: 250ms linear;
-        }
       }
     }
 
@@ -157,6 +136,14 @@ header {
           font-size: 24px;
           text-decoration: none;
           text-shadow: 4px 3px 0 #292929, 2px 2px 2px #ce593700;
+
+          border-radius: 10px;
+
+          &.router-link-active {
+            background-color: #d47f00;
+
+            pointer-events: none;
+          }
 
           & span {
             z-index: 20;
@@ -189,6 +176,7 @@ header {
       max-width: 250px;
       height: 100%;
 
+      margin-top: 50px;
       padding-left: 40px;
 
       position: fixed;
@@ -203,14 +191,20 @@ header {
       background-color: #fff;
       box-shadow: 5px 3px #292929;
 
-      transition: 300ms ease-in;
+      & li {
+        height: 70px;
 
-      & li .link {
-        width: 100%;
+        & .link {
+        width: 150px;
 
         color: #000000;
         text-align: left;
         text-shadow: none;
+
+        &.router-link-active{
+          background-color: rgb(167, 166, 166);
+        }
+        }
       }
     }
   }

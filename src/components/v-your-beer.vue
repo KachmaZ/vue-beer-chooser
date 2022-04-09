@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import Loader from "@/components/v-loader.vue";
 
 export default {
@@ -31,6 +31,7 @@ export default {
 
   methods: {
     ...mapActions(["fetchRandomBeer"]),
+    ...mapMutations(["toggleMobileNav"])
   },
 
   components: {
