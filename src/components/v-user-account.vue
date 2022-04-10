@@ -140,6 +140,7 @@ export default {
       justify-content: space-around;
 
       font-size: 18px;
+      overflow: hidden;
     }
   }
 }
