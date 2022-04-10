@@ -1,7 +1,7 @@
-// Beer info state
+// Beer info state module
 export default {
   actions: {
-    // Fetch one random beer from API
+    // Fetch random beer from API
     async fetchRandomBeer(ctx) {
       ctx.commit("setBeerLoading", true);
       setTimeout(async () => {

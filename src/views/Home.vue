@@ -1,3 +1,5 @@
+// Main page component
+
 <template>
   <div class="home">
     <PersonalAccount :user="currentUser" />
@@ -27,8 +29,7 @@ export default {
     ...mapActions(["fetchRandomUser", "fetchRandomBeer"]),
   },
 
-  async mounted() {
-    this.fetchRandomUser();
+  async created() {
     this.fetchRandomBeer();
   },
 };
@@ -37,7 +38,7 @@ export default {
 <style lang="scss" scoped>
 .home {
   width: 70%;
-  margin: 20px 15% 0;
+  margin: 50px 15% 0;
   display: flex;
   justify-content: space-around;
 }

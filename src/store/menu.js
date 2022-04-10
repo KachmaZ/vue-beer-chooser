@@ -1,3 +1,4 @@
+// Header/sidebsar menu state module
 export default {
   actions: {},
 

@@ -1,3 +1,4 @@
+// User info component
 <template>
   <div class="user">
     <Loader v-if="userLoading" />
@@ -11,13 +12,15 @@
       <div class="user-info">
         <template v-if="!mobile">
           <h2 class="user-name">{{ user.username }}</h2>
-          <span class="user-fullname">
-            {{ user.first_name }} {{ user.last_name }}
-          </span>
-          <span class="user-age">{{ userAge }} years</span>
-          <span class="user-employment" v-if="user.employment">
-            {{ user.employment.title }}
-          </span>
+          <div class="user-info-wrapper">
+            <span class="user-fullname">
+              {{ user.first_name }} {{ user.last_name }}
+            </span>
+            <span class="user-age">{{ userAge }} years</span>
+            <span class="user-employment" v-if="user.employment">
+              {{ user.employment.title }}
+            </span>
+          </div>
         </template>
         <template v-else>
           <span class="user-name">{{ user.username }}</span>
@@ -101,14 +104,18 @@ export default {
   justify-content: space-between;
   align-items: center;
 
+  border: 2px solid #daa700;
+  border-radius: 20px;
+
   & .loader {
-    width: 80px;
     margin: auto;
   }
 
   & .user-avatar {
     width: 200px;
     height: 200px;
+
+    background-color: #fff;
 
     border: 10px solid #6b2b01;
     border-radius: 20px;
@@ -122,17 +129,18 @@ export default {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     text-align: left;
 
-    & .user-name {
-      width: 100%;
-      height: 50px;
-    }
+    & .user-info-wrapper {
+      height: 100%;
 
-    & .user-employment {
-      color: #ffffffb4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      font-size: 18px;
+      overflow: hidden;
     }
   }
 }
@@ -150,13 +158,16 @@ export default {
 
     flex-direction: row;
 
+    & .loader {
+      display: none;
+    }
+
     & .user-avatar {
       width: 50px;
       height: 50px;
 
       margin-right: 20px;
 
-      background-color: #fff;
       border: 2px solid #6b2b01;
       border-radius: 50%;
     }
@@ -179,6 +190,7 @@ export default {
       }
 
       & .user-employment {
+        color: #ffffffb4;
         font-size: 14px;
         white-space: nowrap;
         overflow: hidden;

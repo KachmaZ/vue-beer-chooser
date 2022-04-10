@@ -1,3 +1,4 @@
+// Header component
 <template>
   <header>
     <nav>

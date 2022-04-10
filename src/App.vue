@@ -1,3 +1,5 @@
+// Root component
+
 <template>
   <Header />
   <router-view />
@@ -5,7 +7,7 @@
 
 <script>
 import Header from "@/components/v-header.vue";
-import {mapMutations} from "vuex"
+import {mapActions, mapMutations} from "vuex"
 
 export default {
   components: {
@@ -13,10 +15,12 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["setMobileNav"])
+    ...mapMutations(["setMobileNav"]),
+    ...mapActions(["fetchRandomUser"])
   },
 
   mounted() {
+    this.fetchRandomUser();
     window.addEventListener('click', () => this.setMobileNav(false))
   }
 };
@@ -36,6 +40,7 @@ export default {
 
 #app {
   min-width: 350px;
+  height: 100%;
   padding-top: 50px;
 
   position: relative;
@@ -44,7 +49,6 @@ export default {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 </style>
