@@ -5,9 +5,7 @@ export default {
     async fetchRandomUser(ctx) {
       ctx.commit("setLoading", true);
 
-      const res = await fetch(
-        "https://random-data-api.com/api/users/random_user"
-      );
+      const res = await fetch("https://random-data-api.com/api/users/random_user");
       const user = await res.json();
 
       ctx.commit("updateCurrentUser", user);

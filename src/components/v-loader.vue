@@ -1,4 +1,4 @@
-// Pure css loader component
+// Pure css loader
 
 <template>
   <div class="loader d-flex justify-content-center">

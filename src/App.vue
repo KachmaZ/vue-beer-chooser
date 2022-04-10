@@ -40,6 +40,7 @@ export default {
 
 #app {
   min-width: 350px;
+  height: 100%;
   padding-top: 50px;
 
   position: relative;
@@ -48,7 +49,6 @@ export default {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 </style>

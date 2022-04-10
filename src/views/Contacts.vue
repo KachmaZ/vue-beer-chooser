@@ -19,6 +19,7 @@ export default {
    margin-top: 50px;
 
    font-size: 52px;
+   text-align: center;
 }
 
 </style>
