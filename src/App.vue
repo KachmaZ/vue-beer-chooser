@@ -16,7 +16,7 @@ export default {
 
   methods: {
     ...mapMutations(["setMobileNav"]),
-    ...mapActions(["fetchRandomsUser"])
+    ...mapActions(["fetchRandomUser"])
   },
 
   mounted() {

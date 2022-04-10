@@ -1,4 +1,4 @@
-// Main page view component
+// Main page component
 
 <template>
   <div class="home">
@@ -38,7 +38,7 @@ export default {
 <style lang="scss" scoped>
 .home {
   width: 70%;
-  margin: 20px 15% 0;
+  margin: 50px 15% 0;
   display: flex;
   justify-content: space-around;
 }
