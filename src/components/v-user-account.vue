@@ -1,3 +1,4 @@
+// User info component
 <template>
   <div class="user">
     <Loader v-if="userLoading" />

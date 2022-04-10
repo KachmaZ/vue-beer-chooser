@@ -1,4 +1,4 @@
-// User info state
+// User info state module
 export default {
   actions: {
     // Fetch one random user from API

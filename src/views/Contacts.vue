@@ -1,3 +1,5 @@
+// Contacts view component
+
 <template>
    Contacts page 
 </template>

@@ -1,3 +1,4 @@
+// About view component
 <template>
     <div>
         About page

@@ -1,3 +1,5 @@
+// Main page view component
+
 <template>
   <div class="home">
     <PersonalAccount :user="currentUser" />

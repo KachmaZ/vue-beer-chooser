@@ -1,3 +1,5 @@
+// Main state file
+
 import { createStore } from 'vuex'
 import user from "./user"
 import beer from "./beer"

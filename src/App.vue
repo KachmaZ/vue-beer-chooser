@@ -1,3 +1,5 @@
+// Root component
+
 <template>
   <Header />
   <router-view />
@@ -14,7 +16,7 @@ export default {
 
   methods: {
     ...mapMutations(["setMobileNav"]),
-    ...mapActions(["fetchRandomUser"])
+    ...mapActions(["fetchRandomsUser"])
   },
 
   mounted() {

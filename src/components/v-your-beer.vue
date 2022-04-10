@@ -1,3 +1,5 @@
+// Beer info component
+
 <template>
   <div class="beer">
     <h2 :class="{ hidden: beerLoading }" class="beer-title">Your beer</h2>
