@@ -4,13 +4,17 @@
   <div class="beer">
     <h2 :class="{ hidden: beerLoading }" class="beer-title">Your beer</h2>
     <div class="beer-img" :class="{ loading: beerLoading }"></div>
-    <div class="beer-desc">
-      <Loader v-if="beerLoading" />
-      <template v-else>
-        <span class="brand">Brand: {{ beer.brand }}</span>
-        <span class="name">Name: {{ beer.name }}</span>
-        <span class="style">Style: {{ beer.style }}</span>
-      </template>
+    <div class="beer-desc-wrapper">
+      <div class="beer-desc">
+        <Loader v-if="beerLoading" />
+        <template v-else>
+          <span class="brand" :title="beer.brand">Brand: {{ beer.brand }}</span>
+          <hr>
+          <span class="name" :title="beer.name">Name: {{ beer.name }}</span>
+          <hr>
+          <span class="style" :title="beer.style">Style: {{ beer.style }}</span>
+        </template>
+      </div>
     </div>
     <div @click="fetchRandomBeer" class="beer-choose">
       <span> Choose </span>
@@ -33,7 +37,7 @@ export default {
 
   methods: {
     ...mapActions(["fetchRandomBeer"]),
-    ...mapMutations(["toggleMobileNav"])
+    ...mapMutations(["toggleMobileNav"]),
   },
 
   components: {
@@ -52,9 +56,16 @@ export default {
   justify-content: space-between;
   align-items: center;
 
+  border: 2px solid #daa700;
+  border-radius: 20px;
+
   & .beer-title {
     width: 100%;
     height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &.hidden {
       visibility: hidden !important;
@@ -77,23 +88,35 @@ export default {
 
     &.loading {
       background-image: url("../assets/question-marks.png");
-      transform: rotate(45deg);
+      transform: scale(0.8) rotate(45deg);
 
       transition: 250ms linear;
       transition-property: transform;
     }
   }
 
-  & .beer-desc {
+  & .beer-desc-wrapper {
     width: 100%;
-    height: 150px;
+    height: 140px;
     padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 18px;
+    text-align: left;
+  }
+
+  & .beer-desc {
+    height: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    text-align: left;
+    overflow: hidden;
 
     & .loader {
       width: 80px;
@@ -104,6 +127,7 @@ export default {
   & .beer-choose {
     width: 90%;
     height: 50px;
+    margin: 5%;
 
     display: flex;
     justify-content: center;
@@ -118,6 +142,30 @@ export default {
     border-radius: 10px;
 
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .beer {
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+    border: 0;
+
+    & .beer-img {
+      width: 300px;
+      height: 300px;
+    }
+
+    & .beer-desc-wrapper {
+      max-width: 300px;
+
+      font-size: 24px;
+    }
+
+    & .beer-choose {
+      max-width: 300px;
+    }
   }
 }
 </style>
