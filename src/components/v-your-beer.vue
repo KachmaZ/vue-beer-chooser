@@ -174,7 +174,7 @@ export default {
   .beer {
     width: 90%;
     height: 90%;
-    margin: 5%;
+    margin: 0 5%;
     border: 0;
 
     & .beer-img {
@@ -185,7 +185,7 @@ export default {
     & .beer-desc-wrapper {
       max-width: 300px;
 
-      font-size: 24px;
+      font-size: 20px;
     }
 
     & .beer-choose {
