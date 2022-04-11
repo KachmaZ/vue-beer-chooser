@@ -140,6 +140,8 @@ header {
 
           border-radius: 10px;
 
+          transition: 250ms ease-in;
+
           &.router-link-active {
             background-color: #d47f00;
 
@@ -177,7 +179,7 @@ header {
       max-width: 250px;
       height: 100%;
 
-      margin-top: 50px;
+      margin-top: 70px;
       padding-left: 40px;
 
       position: fixed;
@@ -191,7 +193,7 @@ header {
       align-items: flex-start;
 
       background-color: #fff;
-      box-shadow: 5px 3px #292929;
+      box-shadow: 5px 3px #2929294b;
 
       & li {
         height: 70px;
@@ -203,8 +205,12 @@ header {
           text-align: left;
           text-shadow: none;
 
+          &:hover {
+            background-color: #a7a6a683;
+          }
+
           &.router-link-active {
-            background-color: rgb(167, 166, 166);
+            background-color: #a7a6a6;
           }
         }
       }
