@@ -150,13 +150,15 @@ export default {
     width: 300px;
     height: 70px;
 
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     margin-right: auto;
     z-index: 5;
 
     flex-direction: row;
+
+    border: none;
 
     & .loader {
       display: none;
