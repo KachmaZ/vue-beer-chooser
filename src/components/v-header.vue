@@ -55,15 +55,15 @@
 </template>
 
 <script>
-import {mapGetters, mapMutations} from "vuex"
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["mobile", "mobileNav", "windowWidth"])
+    ...mapGetters(["mobile", "mobileNav", "windowWidth"]),
   },
 
   methods: {
-    ...mapMutations(["toggleMobileNav", "setWindowWidth"])
+    ...mapMutations(["toggleMobileNav", "setWindowWidth"]),
   },
 
   created() {
@@ -76,7 +76,7 @@ export default {
 <style lang="scss" scoped>
 header {
   width: 100%;
-  height: 50px;
+  height: 70px;
 
   position: fixed;
   top: 0;
@@ -187,6 +187,7 @@ header {
 
       display: flex;
       flex-direction: column;
+      justify-content: start;
       align-items: flex-start;
 
       background-color: #fff;
@@ -196,15 +197,15 @@ header {
         height: 70px;
 
         & .link {
-        width: 150px;
+          width: 150px;
 
-        color: #000000;
-        text-align: left;
-        text-shadow: none;
+          color: #000000;
+          text-align: left;
+          text-shadow: none;
 
-        &.router-link-active{
-          background-color: rgb(167, 166, 166);
-        }
+          &.router-link-active {
+            background-color: rgb(167, 166, 166);
+          }
         }
       }
     }

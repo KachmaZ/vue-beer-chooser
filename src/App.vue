@@ -41,7 +41,7 @@ export default {
 #app {
   min-width: 350px;
   height: 100%;
-  padding-top: 50px;
+  padding-top: 70px;
 
   position: relative;
   

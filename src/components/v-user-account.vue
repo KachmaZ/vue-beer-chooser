@@ -148,7 +148,7 @@ export default {
 @media screen and (max-width: 750px) {
   .user {
     width: 300px;
-    height: 50px;
+    height: 70px;
 
     position: absolute;
     top: 0;
@@ -173,9 +173,12 @@ export default {
     }
 
     & .user-info {
+      width: 230px;
       height: 100%;
 
       padding: 0;
+
+      justify-content: space-between;
 
       color: #fff;
       text-shadow: 2px 2px 0 #292929, 2px 2px 2px #ce593700;

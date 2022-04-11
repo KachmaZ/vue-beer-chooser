@@ -130,6 +130,7 @@ export default {
     margin: 5%;
 
     position: relative;
+    z-index: -1;
 
     background-color: #d49c00;
 
