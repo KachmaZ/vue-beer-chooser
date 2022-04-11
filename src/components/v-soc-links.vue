@@ -50,4 +50,10 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 750px) {
+  .soc-links {
+    flex-direction: column;
+  }
+}
 </style>
